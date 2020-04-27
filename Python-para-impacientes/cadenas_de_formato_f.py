@@ -27,4 +27,24 @@ ipuestos = precio * 21/100
 print(f'Bicicleta {modelo}: {precio=impuestos} euros')
 # Bicicleta Orbea Alma: 786.5 euros
 
-# 
+# A partir de python 3.8 un signo igual '=' tras el 
+# nombre de una variable inserta tanto el nombre de 
+# la variable como su valor:
+
+importe = 1300
+descuento = 15
+print(f'Informacion de la cpmpra: {importe=} €, {descuentos=} %')
+# Información de la compra: importe=1300 €, descuento=15 %
+
+# las dobles llaves se utilizan para expresar el 
+# nombres de una variable o mostrar literalmente una 
+# expresion y no el valorresultante de su evaluacion:
+
+arbol = 'secuoya'
+alt = 115
+print(f'Una {arbol}' 'mide 'f'{alt } metros')
+# La secuoya mide hasta 115 metros
+
+print(f'Una { arbol }'+' mide '+f'{alt} metros')
+# La secuoya mide hasta 115 metros
+
