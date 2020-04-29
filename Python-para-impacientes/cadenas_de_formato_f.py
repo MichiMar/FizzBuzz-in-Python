@@ -48,3 +48,13 @@ print(f'Una {arbol}' 'mide 'f'{alt } metros')
 print(f'Una { arbol }'+' mide '+f'{alt} metros')
 # La secuoya mide hasta 115 metros
 
+
+# En la declaración de una cadena el carácter "f" 
+# se puede combinar con el carácter "r" de las
+# cadenas row (crudas) para que no se interpreten
+# las secuencias de escape (caracteres especiales 
+# precedidos de la barra invertida "\"):
+# "\n" (salto de línea), "\t" (tabulador), etc. 
+# Sin embargo, "f" no se puede combinar con "b" o
+# "u" que se utilizan para representar cadenas de
+# Bytes o caracteres Unicode, respectivamente:
