@@ -58,3 +58,61 @@ print(f'Una { arbol }'+' mide '+f'{alt} metros')
 # Sin embargo, "f" no se puede combinar con "b" o
 # "u" que se utilizan para representar cadenas de
 # Bytes o caracteres Unicode, respectivamente:
+
+cadenacruda = fr'la línea finaliza con \n'
+print(cadenacruda)  # la línea finaliza con \n
+
+# Las secuencias de escape no se pueden incluir
+# en una expresión:
+
+print(f'Esta cadena genera un {\"error\"}')
+print(f'Esta cadena no genera un {"error"}')
+
+# Después de cada expresión se puede indicar un
+# especificador para establecer algún tipo de
+# conversión. Las conversiones permitidas se expresan
+# con '!s' , '!r' y '!a' que son equivalentes a las
+# funciones str(), repr() y ascii(), respectivamente:
+
+novela = 'En busca del unicornio'
+cadena = f'La novela se llama {novela!r}'
+print(cadena) 
+
+# La novela se llama 'En busca del unicornio'
+
+# Los especificadores de formato permiten fijar 
+# el espacio reservado para la parte entera de 
+# una expresión numérica y su precisión decimal:
+
+ancho = 10
+precision = 5
+numpi = 3.14159265358979323846
+print(f"Número PI: {numpi:{ancho}.{precision}}")
+# Número PI:     3.1416
+
+# Los especificadores que se utilizan para
+# formatear fechas y horas se pueden utilizar
+# en una cadena "f":
+
+from datetime import datetime
+fecha = datetime.now()
+print(f'El partido de tenis se jugará el día {fecha:%d}')
+# El partido de tenis se jugará el día 10
+
+# Una expresión de una cadena "f" puede incluir
+# llamadas a funciones:
+
+def suma(a,b):
+    return a+b
+    
+a = 10
+b = a * 12  
+rtdo = f'La suma total es {suma(a,b)}'
+print(rtdo)  # La suma total es 130
+
+# ...Y la función Lambda es una función más:
+
+b = 10
+h = 5
+print(f'Área triángulo: {(lambda b,h: b*h/2)(b,h)}')
+# Área triángulo: 25.0
