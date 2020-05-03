@@ -116,3 +116,59 @@ b = 10
 h = 5
 print(f'Área triángulo: {(lambda b,h: b*h/2)(b,h)}')
 # Área triángulo: 25.0
+
+# Con las cadenas "f" la alineación y el rellenado
+# se expresa de manera más simple:
+
+blog = 'Python para impacientes'
+print(f'{blog:_^30}')  # ___Python para impacientes____
+print(f'{blog:_<30}')  # Python para impacientes_______ 
+print(f'{blog:_>30}')  # _______Python para impacientes
+
+# Dentro de una cadena "f" cuando se evalúa una 
+# expresión el valor obtenido se convierte de forma
+# automática a cadena de texto (str) para facilitar
+# su inserción:
+
+import time
+v1 = 10  # Número entero
+v2 = 12.34  # Número con decimales (float)
+v3 = 'abc'  # Cadena de texto
+v4 = 0xF  # Número hexadecimal
+v5 = time.localtime().tm_hour  # Horas
+v6 = time.localtime().tm_min  # Minutos
+v7 = True  # Valor booleano
+v8 = (1, 2, 3)  # Tupla
+v9 = {'x':0, 'y':0}  # Diccionario
+print(f'{v1+v2} {v3} {v4} {v5}:{v6} {v7} {v8} {v9}')
+# 22.34 abc 15 11:31 True (1, 2, 3) {'x': 0, 'y': 0}
+
+# Por último, comentar un detalle importante: las 
+# expresiones de una cadena "f" se evalúan de 
+# izquierda a derecha:
+
+# Reloj binario de dos dígitos
+def cuenta(cnts):
+    if cnts[0]==1 and cnts[1]==1:
+        cnts[0]=0
+        cnts[1]=0    
+    elif cnts[1] < 1:
+        cnts[1]+=1
+    elif cnts[0] < 1:
+        cnts[0]+=1
+        cnts[1]=0
+    else:
+        cnts[0]=1
+        cnts[1]=1
+    return cnts
+
+cnts = [0, 0]
+print('Reloj binario:')
+print(f'{cnts}, {cuenta(cnts)},')
+print(f'{cuenta(cnts)}, {cuenta(cnts)},')
+print(f'{cuenta(cnts)}, {cuenta(cnts)}...')
+
+# Reloj binario:
+# [0, 0], [0, 1],
+# [1, 0], [1, 1],
+# [0, 0], [0, 1]...
